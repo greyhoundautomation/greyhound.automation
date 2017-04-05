@@ -26,14 +26,19 @@ public class WebDriverBuilder {
 				e.printStackTrace();
 				System.out.println("Something went wrong with your file");
 			}
+			
 			// initialize browser
 			if (prop.getProperty("browser").equals("chrome")) {
 				System.setProperty("webdriver.chrome.driver",
 						(System.getProperty("user.dir") + "/chromedriver/chromedriver"));
 				driver = new ChromeDriver();
 			} else if (prop.getProperty("browser").equals("firefox")) {
+<<<<<<< HEAD
 				System.setProperty("webdriver.gecko.driver", 
 						(System.getProperty("user.dir") + "/firefoxdriver/geckodriver"));
+=======
+				System.setProperty("webdriver.gecko.driver", (System.getProperty("user.dir")+"/firefoxdriver/geckodriver"));
+>>>>>>> branch 'master' of https://github.com/aanpudur/GreyhoundTemp.git
 				driver = new FirefoxDriver();
 			} else {
 				System.setProperty("webdriver.chrome.driver",
