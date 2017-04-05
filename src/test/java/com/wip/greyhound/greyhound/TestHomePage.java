@@ -10,7 +10,7 @@ import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 
 public class TestHomePage {
 	public WebDriver driver;
-	public Properties prop;
+	
 
 	public TestHomePage() {
 		driver = WebDriverBuilder.getDriver();
@@ -19,6 +19,7 @@ public class TestHomePage {
 @Test
 public void login(){
 	HomePage home = new HomePage(driver);
+	home.loadORproperties();
 	home.loadUrl();
 	home.gotoLogin();	
 }
