@@ -17,6 +17,7 @@ public class HomePage {
 	
 	public void loadUrl() {
 	driver.get("http://www.greyhound.com");
+	System.out.println(driver.getCurrentUrl());
 	}
 	
 	public LoginPage gotoLogin() {
@@ -24,6 +25,7 @@ public class HomePage {
 		driver.findElement(By.cssSelector("input[name='password']")).sendKeys("satyam123");
 		driver.findElement(By.cssSelector("#rewards-login-go")).click();
 		return new LoginPage();
+		
 	}
 
 	public void goToRegister() {
