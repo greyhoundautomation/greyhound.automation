@@ -41,6 +41,8 @@ public class BasePage {
 			driver.get(getORproperyValue("HOME_URL"));
 		}
 		
+		
+		
 	/*
 		public void loadUrl(){
 			
@@ -53,6 +55,10 @@ public class BasePage {
 		public void click(String css){
 			driver.findElement(By.cssSelector(css)).click();		
 			}	
+		
+		public void close(){
+		  driver.quit();
+		};
 		
 	}
 

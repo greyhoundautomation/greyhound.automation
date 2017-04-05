@@ -5,31 +5,19 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage  extends BasePage  {
 	public HomePage(WebDriver driver) {
-		super(driver);
-		
+		super(driver);	
 	}
 
 	public void gotoLogin() {
-		//driver.findElement(By.cssSelector("intput[name='username']")).sendKeys("gtestsatyam1@gmail.com");
-		enterText(OR.getProperty("USERNAME_FIELD"), OR.getProperty("USER_EMAIL"));												
-		//enterText("#password", "satyam123");
-		//click("#rewards-login-go");
-		//return new LoginPage();
+		enterText(OR.getProperty("USERNAME_FIELD"), OR.getProperty("USER_EMAIL"));	
+		enterText(OR.getProperty("PASSWORD_FIELD"), OR.getProperty("PASSWORD")); 
+		click(OR.getProperty("SIGNIN_BUTTON"));
 	}
 	
-
 	public void loadUrl() {
 	driver.get("http://www.greyhound.com");
 	System.out.println(driver.getCurrentUrl());
 	}
-	/*
-	public LoginPage gotoLogin() {
-		driver.findElement(By.cssSelector("input[name='username']")).sendKeys("gtestsatyam1@gmail.com");
-		driver.findElement(By.cssSelector("input[name='password']")).sendKeys("satyam123");
-		driver.findElement(By.cssSelector("#rewards-login-go")).click();
-		return new LoginPage();
-		
-	}*/
 
 	public void goToRegister() {
     
