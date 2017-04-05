@@ -11,7 +11,6 @@ import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 public class TestHomePage {
 	public WebDriver driver;
 	
-
 	public TestHomePage() {
 		driver = WebDriverBuilder.getDriver();
 	}
