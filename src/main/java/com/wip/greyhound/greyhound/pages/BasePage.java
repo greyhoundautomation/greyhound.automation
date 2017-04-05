@@ -40,14 +40,7 @@ public class BasePage {
 		public void loadUrl() {
 			driver.get(getORproperyValue("HOME_URL"));
 		}
-		
-		
-		
-	/*
-		public void loadUrl(){
-			
-			driver.get("http://www.greyhound.com");
-		}*/
+
 		public void enterText(String css, String input){
 			driver.findElement(By.cssSelector(css)).sendKeys(input);		
 			}

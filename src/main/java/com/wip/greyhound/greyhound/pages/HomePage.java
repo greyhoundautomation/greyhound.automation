@@ -14,11 +14,6 @@ public class HomePage  extends BasePage  {
 		click(OR.getProperty("SIGNIN_BUTTON"));
 	}
 	
-	public void loadUrl() {
-	driver.get("http://www.greyhound.com");
-	System.out.println(driver.getCurrentUrl());
-	}
-
 	public void goToRegister() {
     
 	}
