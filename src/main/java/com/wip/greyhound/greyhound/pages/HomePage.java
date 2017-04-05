@@ -17,21 +17,19 @@ public class HomePage  extends BasePage  {
 		//return new LoginPage();
 	}
 	
-<<<<<<< HEAD
-=======
+
 	public void loadUrl() {
 	driver.get("http://www.greyhound.com");
 	System.out.println(driver.getCurrentUrl());
 	}
-	
+	/*
 	public LoginPage gotoLogin() {
 		driver.findElement(By.cssSelector("input[name='username']")).sendKeys("gtestsatyam1@gmail.com");
 		driver.findElement(By.cssSelector("input[name='password']")).sendKeys("satyam123");
 		driver.findElement(By.cssSelector("#rewards-login-go")).click();
 		return new LoginPage();
 		
-	}
->>>>>>> branch 'master' of https://github.com/aanpudur/GreyhoundTemp.git
+	}*/
 
 	public void goToRegister() {
     
