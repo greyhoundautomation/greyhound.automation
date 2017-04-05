@@ -15,10 +15,10 @@ public class BasePage {
 	
 
 	public BasePage(WebDriver driver) {
-		this.driver = driver;
+		BasePage.driver = driver;
 	}
 	
-	public static void loadORproperties(){
+	public static Properties loadORproperties(){
 		
 		OR = new Properties();
 		FileInputStream fs;
@@ -29,6 +29,7 @@ public class BasePage {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		return OR;
 		
 	}
 
