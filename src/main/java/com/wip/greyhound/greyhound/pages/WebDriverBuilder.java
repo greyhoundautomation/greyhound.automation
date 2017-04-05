@@ -32,7 +32,8 @@ public class WebDriverBuilder {
 						(System.getProperty("user.dir") + "/chromedriver/chromedriver"));
 				driver = new ChromeDriver();
 			} else if (prop.getProperty("browser").equals("firefox")) {
-				System.setProperty("webdriver.gecko.driver", "/Users/aanvp/Downloads/geckodriver");
+				System.setProperty("webdriver.gecko.driver", 
+						(System.getProperty("user.dir") + "/firefoxdriver/geckodriver"));
 				driver = new FirefoxDriver();
 			} else {
 				System.setProperty("webdriver.chrome.driver",
