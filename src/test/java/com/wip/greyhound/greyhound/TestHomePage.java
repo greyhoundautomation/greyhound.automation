@@ -1,5 +1,7 @@
 package com.wip.greyhound.greyhound;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.Properties;
 
 import org.junit.Ignore;
@@ -25,6 +27,7 @@ public void login(){
 	HomePage home = new HomePage(driver);
 	home.loadUrl();
 	home.gotoLogin();	
+	assertTrue(driver.getCurrentUrl().endsWith("/my-road-rewards"));
 }
 
 @Ignore
