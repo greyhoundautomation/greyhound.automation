@@ -26,7 +26,7 @@ public class TestHomePage {
 public void login(){
 	HomePage home = new HomePage(driver);
 	home.loadUrl();
-	home.gotoLogin();	
+	home.gotoLogin();
 	assertTrue(driver.getCurrentUrl().endsWith("/my-road-rewards"));
 }
 
