@@ -20,7 +20,7 @@ public LoginPage(WebDriver driver) {
     action.moveToElement(we).build().perform();
     driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     click(OR.getProperty("PASSWORD_FIELD"));
-    System.out.println("this is vani changes");
+    System.out.println("this is vani changes - edit 2");
 
 }
   
