@@ -16,9 +16,10 @@ public class HomePage  extends BasePage  {
 	
 	public void goToRegister() {
 
+	  
+	  System.out.println("checking in the same project");
 
-	  System.out.println("Aan git testing again");
-    
-	}
-
+}
+	
+	
 }
