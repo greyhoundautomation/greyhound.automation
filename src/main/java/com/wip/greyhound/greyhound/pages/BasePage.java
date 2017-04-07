@@ -15,10 +15,10 @@ public class BasePage {
 	
 
 	public BasePage(WebDriver driver) {
-		this.driver = driver;
+		BasePage.driver = driver;
 	}
 	
-	public static void loadORproperties(){
+	public static Properties loadORproperties(){
 		
 		OR = new Properties();
 		FileInputStream fs;
@@ -29,6 +29,7 @@ public class BasePage {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		return OR;
 		
 	}
 
@@ -40,14 +41,7 @@ public class BasePage {
 		public void loadUrl() {
 			driver.get(getORproperyValue("HOME_URL"));
 		}
-		
-		
-		
-	/*
-		public void loadUrl(){
-			
-			driver.get("http://www.greyhound.com");
-		}*/
+
 		public void enterText(String css, String input){
 			driver.findElement(By.cssSelector(css)).sendKeys(input);		
 			}
