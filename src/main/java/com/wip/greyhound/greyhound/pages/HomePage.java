@@ -15,8 +15,10 @@ public class HomePage  extends BasePage  {
 	}
 	
 	public void goToRegister() {
-	  System.out.println("vani git testing");
-    
-	}
 
+	  
+	  System.out.println("vani git testing");
+
+}
+	
 }
