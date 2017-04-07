@@ -15,6 +15,7 @@ public class HomePage  extends BasePage  {
 	}
 	
 	public void goToRegister() {
+	  System.out.println("Aan git testing");
     
 	}
 
