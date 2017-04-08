@@ -15,7 +15,7 @@ public class WebDriverBuilder {
 
   public static WebDriver getDriver() {
     if (driver == null) {
-      // initialise properties file
+      // Initialize properties file
       prop = new Properties();
       try {
         FileInputStream fs = new FileInputStream(System.getProperty("user.dir")
