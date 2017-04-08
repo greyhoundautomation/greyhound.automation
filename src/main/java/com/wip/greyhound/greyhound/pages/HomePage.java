@@ -13,8 +13,6 @@ public class HomePage extends BasePage {
     click(OR.getProperty("SIGNIN_BUTTON"));
   }
 
-
-
   public void goToRegister() {
 
     System.out.println("check");
