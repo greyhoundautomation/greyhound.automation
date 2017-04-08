@@ -15,10 +15,6 @@ public class HomePage  extends BasePage  {
 	}
 	
 	public void goToRegister() {
-
-	  
-	  System.out.println("checking in the same project edit 2");
-
 }
 	
 	
