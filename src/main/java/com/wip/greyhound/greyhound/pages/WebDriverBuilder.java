@@ -26,7 +26,7 @@ public class WebDriverBuilder {
 				e.printStackTrace();
 				System.out.println("Something went wrong with your file");
 			}
-			
+
 			// initialize browser
 			if (prop.getProperty("browser").equals("chrome")) {
 				System.setProperty("webdriver.chrome.driver",
@@ -34,9 +34,10 @@ public class WebDriverBuilder {
 				driver = new ChromeDriver();
 			} else if (prop.getProperty("browser").equals("firefox")) {
 
-				System.setProperty("webdriver.gecko.driver", 
+				System.setProperty("webdriver.gecko.driver",
 						(System.getProperty("user.dir") + "/firefoxdriver/geckodriver"));
-				System.setProperty("webdriver.gecko.driver", (System.getProperty("user.dir")+"/firefoxdriver/geckodriver"));
+				System.setProperty("webdriver.gecko.driver",
+						(System.getProperty("user.dir") + "/firefoxdriver/geckodriver"));
 
 				driver = new FirefoxDriver();
 			} else {

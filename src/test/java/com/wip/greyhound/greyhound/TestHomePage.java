@@ -16,24 +16,24 @@ import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 public class TestHomePage {
 	public WebDriver driver;
 	public Properties OR;
-	
+
 	public TestHomePage() {
 		driver = WebDriverBuilder.getDriver();
 		OR = BasePage.loadORproperties();
 	}
-	
-@Test
-public void login(){
-	HomePage home = new HomePage(driver);
-	home.loadUrl();
-	home.gotoLogin();
-	assertTrue(driver.getCurrentUrl().endsWith("/my-road-rewards"));
-}
 
-@Ignore
-public void logout(){
-	LoginPage login = new LoginPage(driver);
-	login.signout();
-}
+	@Test
+	public void login() {
+		HomePage home = new HomePage(driver);
+		home.loadUrl();
+		home.gotoLogin();
+		assertTrue(driver.getCurrentUrl().endsWith("/my-road-rewards"));
+	}
+
+	@Ignore
+	public void logout() {
+		LoginPage login = new LoginPage(driver);
+		login.signout();
+	}
 
 }
