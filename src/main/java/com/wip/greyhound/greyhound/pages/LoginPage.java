@@ -12,15 +12,15 @@ public class LoginPage extends BasePage {
   public LoginPage(WebDriver driver) {
     super(driver);
   }
-
-  public void signout() {
-    Actions action = new Actions(driver);
-    WebElement we = driver.findElement(By.cssSelector("span[class='hi-member']"));
-    action.moveToElement(we).build().perform();
-    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-    click(OR.getProperty("PASSWORD_FIELD"));
-    System.out.println("try this");
-
-  }
+  
+//  public void signout() {
+//    Actions action = new Actions(driver);
+//    WebElement we = driver.findElement(By.cssSelector("span[class='hi-member']"));
+//    action.moveToElement(we).build().perform();
+//    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+//    click(OR.getProperty("PASSWORD_FIELD"));
+//    System.out.println("try this");
+//
+//  }
 
 }

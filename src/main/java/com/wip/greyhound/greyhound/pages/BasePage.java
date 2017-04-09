@@ -15,31 +15,11 @@ public class BasePage {
     BasePage.driver = driver;
   }
 
-  public static Properties loadORproperties() {
-
-    OR = new Properties();
-    FileInputStream fs;
-    try {
-      fs = new FileInputStream(System.getProperty("user.dir")
-          + "/src/main/java/com/wip/config/properties/OR.properties");
-      OR.load(fs);
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-    return OR;
-
-  }
-
-  public String getORproperyValue(String key) {
-
-    return OR.getProperty(key);
-  }
-
   public void loadUrl() {
-    driver.get(getORproperyValue("HOME_URL"));
-  }
 
+    driver.get("http://www.greyhound.com");
+  }
+/*
   public void enterText(String css, String input) {
     driver.findElement(By.cssSelector(css)).sendKeys(input);
   }
@@ -51,5 +31,5 @@ public class BasePage {
   public void close() {
     driver.quit();
   };
-
+*/
 }

@@ -19,7 +19,6 @@ public class TestHomePage {
 
   public TestHomePage() {
     driver = WebDriverBuilder.getDriver();
-    OR = BasePage.loadORproperties();
   }
 
   @Test
@@ -30,10 +29,10 @@ public class TestHomePage {
     assertTrue(driver.getCurrentUrl().endsWith("/my-road-rewards"));
   }
 
-  @Ignore
-  public void logout() {
-    LoginPage login = new LoginPage(driver);
-    login.signout();
-  }
+  
+//  public void logout() {
+//    LoginPage login = new LoginPage(driver);
+//    login.signout();
+//  }
 
 }
