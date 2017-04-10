@@ -1,26 +1,39 @@
 package com.wip.greyhound.greyhound.pages;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class LoginPage extends BasePage {
+  String passwordField = "input[name='password']";
+  String signoutButton = "a[href='/account']";
 
   public LoginPage(WebDriver driver) {
     super(driver);
   }
-  
-//  public void signout() {
-//    Actions action = new Actions(driver);
-//    WebElement we = driver.findElement(By.cssSelector("span[class='hi-member']"));
-//    action.moveToElement(we).build().perform();
-//    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-//    click(OR.getProperty("PASSWORD_FIELD"));
-//    System.out.println("try this");
-//
-//  }
+
+  public int getMemberId() {
+    String id = driver.findElement(By.cssSelector("em[class='emblue']")).getText();
+    int memberId = Integer.parseInt(id);
+    System.out.println(memberId);
+    return memberId;
+  }
+
+  public void signout() {
+    Actions action = new Actions(driver);
+    WebElement hoverOn = driver.findElement(By.cssSelector("span[class='hi-member']"));
+    action.moveToElement(hoverOn);
+    action.perform();
+    click(signoutButton);
+    // driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+    //
+    // Actions actions = new Actions(driver);
+    // WebElement moveonmenu = driver.findElement(By.xpath("//div[@id='menu1']/div"));
+    // actions.moveToElement(moveonmenu);
+    // actions.perform();
+    System.out.println("try this");
+
+  }
 
 }
