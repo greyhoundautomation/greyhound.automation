@@ -26,13 +26,6 @@ public class LoginPage extends BasePage {
     action.moveToElement(hoverOn);
     action.perform();
     click(signoutButton);
-    // driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-    //
-    // Actions actions = new Actions(driver);
-    // WebElement moveonmenu = driver.findElement(By.xpath("//div[@id='menu1']/div"));
-    // actions.moveToElement(moveonmenu);
-    // actions.perform();
-    System.out.println("try this");
 
   }
 

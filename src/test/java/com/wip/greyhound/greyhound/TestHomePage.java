@@ -21,7 +21,6 @@ public class TestHomePage {
     driver = WebDriverBuilder.getDriver();
   }
 
-
   @Test
   public void login() {
     HomePage home = new HomePage(driver);
