@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Properties;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -13,38 +14,43 @@ import com.wip.greyhound.greyhound.pages.HomePage;
 import com.wip.greyhound.greyhound.pages.LoginPage;
 import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 
-public class TestHomePage {
-  public WebDriver driver;
+public class HomePageTest {
+  public static WebDriver driver;
   public Properties OR;
+  LoginPage login = new LoginPage(driver);
 
-  public TestHomePage() {
+
+  public HomePageTest() {
     driver = WebDriverBuilder.getDriver();
   }
 
-  @Test
-  public void login() {
+  @Ignore
+  public void verifyLogin() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
     home.gotoLogin();
-    assertTrue(driver.getCurrentUrl().endsWith("/my-road-rewards"));
-    LoginPage login = new LoginPage(driver);
+    assertTrue(driver.getCurrentUrl().endsWith("road-rewards/my-road-rewards"));
+    home.closeBrowser();
+  }
+
+  @Test
+  public void verifyMemberId() {
+    HomePage home = new HomePage(driver);
+    home.loadUrl();
+    home.gotoLogin();
     Assert.assertEquals(172893321, login.getMemberId());
+
+  }
+
+  @After
+  public void closeBrowser() {
+    HomePage home = new HomePage(driver);
+    home.closeBrowser();
+
+  }
+
+  public void verifyLogout() {
     login.signout();
     assertTrue(driver.getCurrentUrl().endsWith("help-and-info/road-rewards"));
-  }
-
-  @Ignore
-  public void verifyMemberShipID() {
-    HomePage home = new HomePage(driver);
-    home.loadUrl();
-    home.gotoLogin();
-    LoginPage login = new LoginPage(driver);
-    Assert.assertEquals(172893321, login.getMemberId());
-  }
-
-  @Ignore
-  public void logout() {
-
-
   }
 }
