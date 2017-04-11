@@ -37,6 +37,8 @@ public class WebDriverBuilder {
       // initialize browser with all the preferences and capabilities
       if (prop.getProperty("browser").equals("chrome")) {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        options.addArguments("disable-infobars");
         Map<String, Object> prefs = new HashMap<String, Object>();
         prefs.put("profile.default_content_settings.popups", 0);
         options.addArguments("disable-extensions");
