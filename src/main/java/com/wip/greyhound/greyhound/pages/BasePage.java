@@ -25,8 +25,8 @@ public class BasePage {
     driver.findElement(By.cssSelector(css)).click();
   }
 
-  public void close() {
-    driver.quit();
+  public void closeBrowser() {
+    driver.close();
   }
 
 }

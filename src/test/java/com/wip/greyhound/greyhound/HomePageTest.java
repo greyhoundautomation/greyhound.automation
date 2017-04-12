@@ -1,10 +1,7 @@
 package com.wip.greyhound.greyhound;
 
-import static org.junit.Assert.assertTrue;
-
 import java.util.Properties;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -12,12 +9,12 @@ import org.openqa.selenium.WebDriver;
 
 import com.wip.greyhound.greyhound.pages.HomePage;
 import com.wip.greyhound.greyhound.pages.LoginPage;
+import com.wip.greyhound.greyhound.pages.TripSearchResultsPage;
 import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 
 public class HomePageTest {
   public static WebDriver driver;
   public Properties OR;
-  LoginPage login = new LoginPage(driver);
 
 
   public HomePageTest() {
@@ -29,28 +26,37 @@ public class HomePageTest {
     HomePage home = new HomePage(driver);
     home.loadUrl();
     home.gotoLogin();
-    assertTrue(driver.getCurrentUrl().endsWith("road-rewards/my-road-rewards"));
-    home.closeBrowser();
   }
 
-  @Test
+  @Ignore
   public void verifyMemberId() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
     home.gotoLogin();
+    LoginPage login = new LoginPage(driver);
     Assert.assertEquals(172893321, login.getMemberId());
-
   }
 
-  @After
-  public void closeBrowser() {
-    HomePage home = new HomePage(driver);
-    home.closeBrowser();
-
-  }
-
+  @Ignore
   public void verifyLogout() {
+    HomePage home = new HomePage(driver);
+    home.loadUrl();
+    home.gotoLogin();
+    LoginPage login = new LoginPage(driver);
     login.signout();
-    assertTrue(driver.getCurrentUrl().endsWith("help-and-info/road-rewards"));
+    Assert.assertTrue(driver.getCurrentUrl().endsWith("help-and-info/road-rewards"));
   }
+
+  @Test
+  public void verifyBookingAtrip() {
+    HomePage home = new HomePage(driver);
+    home.loadUrl();
+    home.gotoLogin();
+    LoginPage login = new LoginPage(driver);
+    TripSearchResultsPage searchResultPage = login.bookAtrip();
+
+
+  }
+
+
 }

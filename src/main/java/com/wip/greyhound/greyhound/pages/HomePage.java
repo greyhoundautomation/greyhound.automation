@@ -19,6 +19,8 @@ public class HomePage extends BasePage {
     click(submitButton);
   }
 
+
+
   public void goToRegister() {
 
     System.out.println("check..");
