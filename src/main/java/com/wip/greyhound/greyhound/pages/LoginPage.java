@@ -1,6 +1,7 @@
 package com.wip.greyhound.greyhound.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -43,22 +44,29 @@ public class LoginPage extends BasePage {
     click("#datepicker-from");
     click(".next");
     driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).click();
-    try {
-      Thread.sleep(1000);
-    } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+
+
+    JavascriptExecutor jse = (JavascriptExecutor) driver;
+    jse.executeScript("window.scrollBy(0,-250)", "");
+    // try {
+    // Thread.sleep(1000);
+    // } catch (InterruptedException e) {
+    // // TODO Auto-generated catch block
+    // e.printStackTrace();
+    // }
 
     click("#datepicker-to");
+    click("#datepicker-to");
+    // WebElement element = driver.findElement(By.cssSelector("#datepicker-to"));
+    // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 
     click(".next");
-    try {
-      Thread.sleep(1000);
-    } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+    // try {
+    // Thread.sleep(1000);
+    // } catch (InterruptedException e) {
+    // // TODO Auto-generated catch block
+    // e.printStackTrace();
+    // }
 
     click(".next");
     driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).click();
