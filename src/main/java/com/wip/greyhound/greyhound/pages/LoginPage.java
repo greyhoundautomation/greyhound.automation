@@ -1,6 +1,7 @@
 package com.wip.greyhound.greyhound.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -38,31 +39,42 @@ public class LoginPage extends BasePage {
 
   public TripSearchResultsPage bookAtrip() {
     driver.findElement(By.xpath(BookAtripTab)).click();
-    enterText(" #fromLocation", "San Francisco, CA");
+    enterText(" #fromLocation", "San Francisco,CA");
     enterText(" #toLocation", "Allendale, NJ");
     click("#datepicker-from");
+    WebElement next = driver.findElement(By.cssSelector(".next"));
+    ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", next);
+
     click(".next");
     driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).click();
-    try {
-      Thread.sleep(1000);
-    } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-
-    click("#datepicker-to");
-
+    click("#datepicker-to");   
+    //JavascriptExecutor jse = (JavascriptExecutor)driver;
+    //jse.executeScript("window.scrollBy(0,-800)", "");      
+    //((JavascriptExecutor) driver).executeScript("scroll(0,-300)");
     click(".next");
     try {
-      Thread.sleep(1000);
-    } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-
+ 		Thread.sleep(3000);
+ 	} catch (InterruptedException e) {
+ 		// TODO Auto-generated catch block
+ 		e.printStackTrace();
+ 	}
     click(".next");
-    driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).click();
+    driver.findElement(By.xpath("//table/tbody/tr[5]/td[4]")).click();
+
+    try {
+ 		Thread.sleep(3000);
+ 	} catch (InterruptedException e) {
+ 		// TODO Auto-generated catch block
+ 		e.printStackTrace();
+ 	}
+  
     click("#fare-search-btn");
+    
+//    driver.findElement(By.xpath(BookAtripTab)).click();
+    enterText(" #fromLocation", "San Francisco,CA");
+    enterText(" #toLocation", "Allendale, NJ");
+    click("#fare-search-btn");
+
 
     return new TripSearchResultsPage(driver);
 
