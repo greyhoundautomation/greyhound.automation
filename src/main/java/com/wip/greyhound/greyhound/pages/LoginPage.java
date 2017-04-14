@@ -40,9 +40,31 @@ public class LoginPage extends BasePage {
     driver.findElement(By.xpath(BookAtripTab)).click();
     enterText(" #fromLocation", "San Francisco, CA");
     enterText(" #toLocation", "Allendale, NJ");
+    click("#datepicker-from");
+    click(".next");
+    driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).click();
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+    click("#datepicker-to");
+
+    click(".next");
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+    click(".next");
+    driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).click();
+    click("#fare-search-btn");
 
     return new TripSearchResultsPage(driver);
 
   }
-
 }
