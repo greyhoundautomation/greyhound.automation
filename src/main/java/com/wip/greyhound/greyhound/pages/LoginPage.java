@@ -87,12 +87,6 @@ public class LoginPage extends BasePage {
     click(".next");
     driver.findElement(By.xpath("//table/tbody/tr[5]/td[4]")).click();
 
-    try {
- 		Thread.sleep(3000);
- 	} catch (InterruptedException e) {
- 		// TODO Auto-generated catch block
- 		e.printStackTrace();
- 	}
   
     click("#fare-search-btn");
     
@@ -105,4 +99,14 @@ public class LoginPage extends BasePage {
     return new TripSearchResultsPage(driver);
 
   }
+	return TripSearchResultsPage(driver);
+
+  }
+
+private TripSearchResultsPage TripSearchResultsPage(WebDriver driver) {
+	// TODO Auto-generated method stub
+	return null;
+}
+  
+  
 }
