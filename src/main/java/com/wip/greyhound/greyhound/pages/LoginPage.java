@@ -47,6 +47,7 @@ public class LoginPage extends BasePage {
 
     click(".next");
     driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).click();
+
     click("#datepicker-to");   
     //JavascriptExecutor jse = (JavascriptExecutor)driver;
     //jse.executeScript("window.scrollBy(0,-800)", "");      
@@ -57,7 +58,32 @@ public class LoginPage extends BasePage {
  	} catch (InterruptedException e) {
  		// TODO Auto-generated catch block
  		e.printStackTrace();
- 	}
+ 	
+
+
+    JavascriptExecutor jse = (JavascriptExecutor) driver;
+    jse.executeScript("window.scrollBy(0,-250)", "");
+    // try {
+    // Thread.sleep(1000);
+    // } catch (InterruptedException e) {
+    // // TODO Auto-generated catch block
+    // e.printStackTrace();
+    // }
+
+    click("#datepicker-to");
+    click("#datepicker-to");
+    // WebElement element = driver.findElement(By.cssSelector("#datepicker-to"));
+    // ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
+    click(".next");
+    // try {
+    // Thread.sleep(1000);
+    // } catch (InterruptedException e) {
+    // // TODO Auto-generated catch block
+    // e.printStackTrace();
+    // }
+
+
     click(".next");
     driver.findElement(By.xpath("//table/tbody/tr[5]/td[4]")).click();
 
