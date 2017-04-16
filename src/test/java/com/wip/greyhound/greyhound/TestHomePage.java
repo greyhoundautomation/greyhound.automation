@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import com.wip.greyhound.greyhound.pages.BasePage;
+import com.wip.greyhound.greyhound.pages.HelpandInfoPage;
 import com.wip.greyhound.greyhound.pages.HomePage;
 import com.wip.greyhound.greyhound.pages.LoginPage;
 import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
@@ -21,7 +22,7 @@ public class TestHomePage {
     driver = WebDriverBuilder.getDriver();
   }
 
-  @Test
+  @Ignore
   public void login() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
@@ -34,5 +35,19 @@ public class TestHomePage {
 //    LoginPage login = new LoginPage(driver);
 //    login.signout();
 //  }
+  
+ @Test
+ public void rewardsPoint() {
+   HomePage home = new HomePage(driver);
+   HelpandInfoPage HelpandInfo =  new HelpandInfoPage(driver);
+   home.loadUrl();
+   home.goToHelpAndInfo();
+   HelpandInfo.GotoRoadRewards();
+   
+   
+   
+   
+   
+ }
 
 }

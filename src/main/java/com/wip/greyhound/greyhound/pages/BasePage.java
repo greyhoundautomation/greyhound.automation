@@ -1,7 +1,5 @@
 package com.wip.greyhound.greyhound.pages;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
@@ -16,10 +14,9 @@ public class BasePage {
   }
 
   public void loadUrl() {
-
     driver.get("http://www.greyhound.com");
   }
-/*
+
   public void enterText(String css, String input) {
     driver.findElement(By.cssSelector(css)).sendKeys(input);
   }
@@ -28,8 +25,8 @@ public class BasePage {
     driver.findElement(By.cssSelector(css)).click();
   }
 
-  public void close() {
+  public void closeBrowser() {
     driver.quit();
-  };
-*/
+  }
+  
 }
