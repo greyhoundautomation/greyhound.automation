@@ -2,11 +2,17 @@ package com.wip.greyhound.greyhound.pages;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class WebDriverBuilder {
 
@@ -15,6 +21,7 @@ public class WebDriverBuilder {
 
   public static WebDriver getDriver() {
     if (driver == null) {
+
       // Initialize properties file
       prop = new Properties();
       try {
@@ -27,11 +34,28 @@ public class WebDriverBuilder {
         System.out.println("Something went wrong with your file");
       }
 
-      // initialize browser
+      // initialize browser with all the preferences and capabilities
       if (prop.getProperty("browser").equals("chrome")) {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        options.addArguments("disable-infobars");
+        Map<String, Object> prefs = new HashMap<String, Object>();
+        prefs.put("profile.default_content_settings.popups", 0);
+        options.addArguments("disable-extensions");
+        prefs.put("credentials_enable_service", false);
+        prefs.put("password_manager_enabled", false);
+        options.setExperimentalOption("prefs", prefs);
+        options.addArguments("chrome.switches", "--disable-extensions");
+        options.addArguments("--test-type");
+        DesiredCapabilities cap = DesiredCapabilities.chrome();
+        cap.setCapability(ChromeOptions.CAPABILITY, options);
+        cap.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,
+            UnexpectedAlertBehaviour.ACCEPT);
+
         System.setProperty("webdriver.chrome.driver",
             (System.getProperty("user.dir") + "/chromedriver/chromedriver"));
-        driver = new ChromeDriver();
+
+        driver = new ChromeDriver(cap);
       } else if (prop.getProperty("browser").equals("firefox")) {
 
         System.setProperty("webdriver.gecko.driver",
