@@ -21,23 +21,26 @@ public class HomePageTest {
     driver = WebDriverBuilder.getDriver();
   }
 
-  @Ignore
+  @Test
   public void verifyLogin() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
     home.gotoLogin();
   }
 
-  @Ignore
+  @Test
   public void verifyMemberId() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
     home.gotoLogin();
     LoginPage login = new LoginPage(driver);
-    Assert.assertEquals(172893321, login.getMemberId());
+    Assert.assertEquals("172893321", login.getMemberId());
+    home.closeBrowser();
+  
   }
 
-  @Ignore
+
+@Ignore
   public void verifyLogout() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
@@ -45,6 +48,7 @@ public class HomePageTest {
     LoginPage login = new LoginPage(driver);
     login.signout();
     Assert.assertTrue(driver.getCurrentUrl().endsWith("help-and-info/road-rewards"));
+    //home.closeBrowser();
   }
 
   @Test
@@ -54,6 +58,7 @@ public class HomePageTest {
     home.gotoLogin();
     LoginPage login = new LoginPage(driver);
     TripSearchResultsPage searchResultPage = login.bookAtrip();
+    home.closeBrowser();
 
 
   }
