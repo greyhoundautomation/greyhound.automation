@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.wip.greyhound.greyhound.pages.HelpandInfoPage;
 import com.wip.greyhound.greyhound.pages.HomePage;
 import com.wip.greyhound.greyhound.pages.LoginPage;
 import com.wip.greyhound.greyhound.pages.MexicoSitePage;
@@ -75,6 +76,15 @@ public class HomePageTest {
     // driver.assertTrue(driver.is_element_present(By.cssSelector(".whitelabel-home-title.title-orange"));
     driver.getPageSource().contains("LAS TARIFAS");
 
+  }
+  
+  @Test
+  public void rewardsPoint() {
+    HomePage home = new HomePage(driver);
+    HelpandInfoPage HelpandInfo =  new HelpandInfoPage(driver);
+    home.loadUrl();
+    home.goToHelpAndInfo();
+    HelpandInfo.GotoRoadRewards();
   }
   
 
