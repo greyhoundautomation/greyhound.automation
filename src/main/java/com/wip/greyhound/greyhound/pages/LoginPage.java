@@ -51,6 +51,8 @@ public class LoginPage extends BasePage {
 		driver.findElement(By.xpath(".//*[@id='dateto-datepicker']//span[12]")).click();
 		driver.findElement(By.xpath("//table/tbody/tr[5]/td[4]")).click();
 		click("#fare-search-btn");
+		System.out.println(driver.getCurrentUrl());
+		
 		// enterText(" #fromLocation", "San Francisco,CA");
 		// enterText(" #toLocation", "Allendale, NJ");
 		// click("#fare-search-btn");

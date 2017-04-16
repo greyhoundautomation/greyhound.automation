@@ -1,6 +1,9 @@
 package com.wip.greyhound.greyhound.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends BasePage {
   String usernameField = "input[name='username']";
@@ -19,6 +22,12 @@ public class HomePage extends BasePage {
     click(submitButton);
   }
 
+  public void gotoMexicoSite(){
+	  new WebDriverWait(driver, 30)
+		.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".menu-mex.menu-lang>a")));
+	  click(".menu-mex.menu-lang>a");
+	
+  }
 
 
   public void goToRegister() {
