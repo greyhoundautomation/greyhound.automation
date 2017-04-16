@@ -41,7 +41,7 @@ public class HomePageTest {
 
   }
 
-  @Ignore
+  @Test
   public void verifyLogout() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
@@ -51,7 +51,7 @@ public class HomePageTest {
     Assert.assertTrue(driver.getCurrentUrl().endsWith("help-and-info/road-rewards"));
   }
 
-  @Test
+  @Ignore
   public void verifyBookingAtrip() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
@@ -78,7 +78,7 @@ public class HomePageTest {
 
   }
   
-  @Test
+  @Ignore
   public void rewardsPoint() {
     HomePage home = new HomePage(driver);
     HelpandInfoPage HelpandInfo =  new HelpandInfoPage(driver);

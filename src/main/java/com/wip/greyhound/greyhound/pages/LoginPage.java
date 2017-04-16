@@ -28,11 +28,10 @@ public class LoginPage extends BasePage {
     Actions action = new Actions(driver);
     WebElement hoverOn = driver.findElement(By.cssSelector("span[class='hi-member']"));
     action.moveToElement(hoverOn);
-    action.perform();
-    new WebDriverWait(driver, 30)
-        .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("em[class='emblue']")));
-    driver.findElement(By.xpath("//a [@href='/account']']")).click();
-
+    action.perform();   
+ //   new WebDriverWait(driver, 30)
+//        .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='btn btn-tertiary'] [text()='Log Out'])")));
+   driver.findElement(By.xpath("//a[@class='btn btn-tertiary'] [text()='Log Out'])")).click(); 
   }
 
   public TripSearchResultsPage bookAtrip() {
@@ -49,7 +48,7 @@ public class LoginPage extends BasePage {
     click("#fare-search-btn");
     System.out.println(driver.getCurrentUrl());
     // needed to do this loop, as website has a bug - once the date is selected,
-    // from and to text fields are getting cleared
+    // 'from' and 'to' input fields are getting cleared
     if (!driver.getCurrentUrl().endsWith("en/ecommerce/schedule")) {
       enterText(" #fromLocation", "San Francisco,CA");
       enterText(" #toLocation", "Allendale, NJ");
