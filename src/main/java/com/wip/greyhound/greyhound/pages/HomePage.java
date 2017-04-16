@@ -36,7 +36,8 @@ public class HomePage extends BasePage {
 
 
   public HelpandInfoPage goToHelpAndInfo() {
-    click(helpandInfo);
+    //click(helpandInfo);
+    driver.findElement(By.xpath("//a[@href='/en/help-and-info']")).click();
     return new HelpandInfoPage(driver);
  }
 	

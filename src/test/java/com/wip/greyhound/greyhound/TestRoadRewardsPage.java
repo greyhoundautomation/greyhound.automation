@@ -42,8 +42,8 @@ public class TestRoadRewardsPage {
     //Assert.assertTrue(actualTitle.contains("Rewards"));
     //assertEquals(expectedTitle, actualTitle);
   }
-  @Ignore
-  public void verifySignup() throws InterruptedException{
+  @Test
+  public void verifySignup() { //throws InterruptedException{
     HomePage home = new HomePage(driver);
     HelpandInfoPage HelpandInfo =  new HelpandInfoPage(driver);
     SignupPage RR_Signup = new SignupPage(driver);
@@ -52,7 +52,12 @@ public class TestRoadRewardsPage {
     home.goToHelpAndInfo();
     HelpandInfo.GotoRoadRewards();
     RRpage.gotoSignup(driver);
-    RR_Signup.signup();   
+    try {
+      RR_Signup.signup();
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }   
   }
   
   @Ignore

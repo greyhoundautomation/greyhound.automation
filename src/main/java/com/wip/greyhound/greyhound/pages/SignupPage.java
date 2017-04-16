@@ -24,7 +24,7 @@ public class SignupPage extends BasePage {
    String confirmEmail="#confirmyouraddress";
    String password ="#yourpassword";
    String confirmPassword="#confirmyourpassword";
-   String signup_btn="#rewards-login-go";
+   String signup_btn=  "//*[@id='registrationForm']/button"; //"button[id='rewards-login-go']"; //"#rewards-login-go";
   
    String vacationChkbox="#vacation"; //#registrationForm fieldset:nth-child(3) div ul>li:nth-child(1) input[id="vacation"]
    String friendsChkbox="#friends";
@@ -56,12 +56,17 @@ public class SignupPage extends BasePage {
     driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);*/
     
     driver.manage().window().maximize();
-    JavascriptExecutor jse = (JavascriptExecutor)driver;
-    WebElement signup = driver.findElement(By.cssSelector("#rewards-login-go"));
-    jse.executeScript("scroll(250, 250)");
-    jse.executeScript("arguments[0].scrollIntoView()",signup); 
+//    JavascriptExecutor jse = (JavascriptExecutor)driver;
+//    WebElement signup = driver.findElement(By.cssSelector("#rewards-login-go"));
+//    jse.executeScript("scroll(0, 250)");
+//    jse.executeScript("arguments[0].scrollIntoView()",signup); 
     //vacChkbox.click(); */
-    click(signup_btn);
+    
+    JavascriptExecutor js =(JavascriptExecutor)driver;
+    js.executeScript("window.scrollBy(0,2500)", "");
+    driver.findElement(By.xpath(".//*[@id='termsColumn']/ul/li[1]/div/ins")).click();
+    driver.findElement(By.xpath(".//*[@id='registrationForm']/button")).click();
+    //click(signup_btn);
     
     
    }
