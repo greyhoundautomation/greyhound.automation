@@ -16,9 +16,11 @@ import com.wip.greyhound.greyhound.pages.MexicoSitePage;
 import com.wip.greyhound.greyhound.pages.TripSearchResultsPage;
 import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 
-public class HomePageTest {
-	public static WebDriver driver;
-	public Properties OR;
+
+public class HomePageTest  {
+  public static WebDriver driver;
+  public Properties OR;
+
 
 	public HomePageTest() {
 		driver = WebDriverBuilder.getDriver();
@@ -53,20 +55,22 @@ public class HomePageTest {
 		Assert.assertTrue(driver.getCurrentUrl().endsWith("help-and-info/road-rewards"));
 	}
 
-	@Ignore
-	public void verifyBookingAtrip() {
-		HomePage home = new HomePage(driver);
-		home.loadUrl();
-		home.gotoLogin();
-		LoginPage login = new LoginPage(driver);
-		TripSearchResultsPage searchResultPage = login.bookAtrip();
-		System.out.println(driver.getCurrentUrl());
-		// Below might be a seleniumn bug, it doesn't give the corrct url, i am
-		// getting the base url
-		// Assert.assertTrue(driver.getCurrentUrl().endsWith("en/ecommerce/schedule"));
-		// Assert.assertTrue(driver.getPageSource().contains("EDIT YOUR TRIP"));
-		// driver.findElement(By.cssSelector("#sbtrig-schedule")).isDisplayed();
-	}
+
+  @Ignore
+  public void verifyBookingAtrip() {
+    HomePage home = new HomePage(driver);
+    home.loadUrl();
+    home.gotoLogin();
+    LoginPage login = new LoginPage(driver);
+    TripSearchResultsPage searchResultPage = login.bookAtrip();
+    System.out.println(driver.getCurrentUrl());
+    // Below might be a seleniumn bug, it doesn't give the corrct url, i am getting the base url
+    // Assert.assertTrue(driver.getCurrentUrl().endsWith("en/ecommerce/schedule"));
+    // Assert.assertTrue(driver.getPageSource().contains("EDIT YOUR TRIP"));
+    //driver.findElement(By.cssSelector("#sbtrig-schedule")).isDisplayed();
+  }
+  
+
 
 	@Ignore
 	public void verifyEditTripDetails() {
@@ -115,3 +119,4 @@ public class HomePageTest {
 	}
 
 }
+
