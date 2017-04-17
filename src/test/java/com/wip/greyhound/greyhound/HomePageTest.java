@@ -45,6 +45,7 @@ public class HomePageTest {
   public void verifyLogout() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
+    driver.manage().deleteAllCookies();
     home.gotoLogin();
     LoginPage login = new LoginPage(driver);
     login.signout();
