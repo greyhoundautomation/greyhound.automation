@@ -14,8 +14,7 @@ public class ExplorePage extends BasePage{
 	}
 
 	public void getListOfPlaces(){
-		List<WebElement> locations =driver.findElements(By.xpath("location-link"));
-		
+		List<WebElement> locations =driver.findElements(By.xpath("location-link"));		
 		for (WebElement webElement : locations) {
 			System.out.println(webElement);			
 		}

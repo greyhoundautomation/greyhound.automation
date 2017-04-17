@@ -97,7 +97,7 @@ public class HomePageTest {
 		HelpandInfo.GotoRoadRewards();
 	}
 
-	@Test
+	@Ignore
 	public void gotoExplorePlaces()  {
 		HomePage home = new HomePage(driver);
 		home.loadUrl();
@@ -105,6 +105,13 @@ public class HomePageTest {
 		ExplorePage explore = login.gotoExplorePlaces();
 		System.out.println(driver.getCurrentUrl());
 		Assert.assertTrue(driver.getCurrentUrl().endsWith("en/explore-places"));		
+	}
+	
+	@Test
+	public void verifyExplorePlaces(){
+		gotoExplorePlaces();
+		ExplorePage explore = new ExplorePage(driver);
+		explore.getListOfPlaces();
 	}
 
 }
