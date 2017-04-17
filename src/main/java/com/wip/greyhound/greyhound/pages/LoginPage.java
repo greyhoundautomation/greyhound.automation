@@ -39,6 +39,7 @@ public class LoginPage extends BasePage {
 		// new WebDriverWait(driver, 30)
 		// .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='btn
 		// btn-tertiary'] [text()='Log Out'])")));
+		
 		// Clicking doesn't work when the hovering is on. If hovering is
 		// removed, element is not visible, tried with css selector didn't work
 		// driver.findElement(By.xpath("//a[@class='btn btn-tertiary']
@@ -69,5 +70,16 @@ public class LoginPage extends BasePage {
 
 		return new TripSearchResultsPage(driver);
 	}
+	
+	public ExplorePage gotoExplorePlaces(){
+		//need to change to css selector later.  right now css slector not working
+		driver.findElement(By.xpath("//*[@id='nav-main']/ul/li[2]/a")).click();
+		//String title = driver.findElement(By.xpath("//h1[@class='title-masthead']")).getText();
+		return new ExplorePage(driver);
+			
+		}
 
-}
+		
+	}
+
+
