@@ -15,7 +15,7 @@ import com.wip.greyhound.greyhound.pages.MexicoSitePage;
 import com.wip.greyhound.greyhound.pages.TripSearchResultsPage;
 import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 
-public class HomePageTest {
+public class HomePageTest  {
   public static WebDriver driver;
   public Properties OR;
 
@@ -65,6 +65,7 @@ public class HomePageTest {
     // Assert.assertTrue(driver.getPageSource().contains("EDIT YOUR TRIP"));
     //driver.findElement(By.cssSelector("#sbtrig-schedule")).isDisplayed();
   }
+  
 
   @Ignore
   public void verifyMexicoSite() {
