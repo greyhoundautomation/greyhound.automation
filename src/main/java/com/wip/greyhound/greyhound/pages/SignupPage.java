@@ -47,13 +47,12 @@ public class SignupPage extends BasePage {
     enterText(confirmEmail, "test.dev.d10m@gmail.com");
     enterText(password, "gh123");
     enterText(confirmPassword, "gh123");
-   /* WebDriverWait wait = new WebDriverWait(driver, 10);
-    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("vacation")));*/
-    /*Thread.sleep(2000);
-    WebElement vacChkbox = driver.findElement(By.id("vacation"));
-    Actions action = new Actions(driver);
-    action.moveToElement(vacChkbox).build().perform();
-    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);*/
+//    WebDriverWait wait = new WebDriverWait(driver, 10);
+//    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("vacation")));*/
+//    WebElement vacChkbox = driver.findElement(By.id("vacation"));
+//    Actions action = new Actions(driver);
+//    action.moveToElement(vacChkbox).build().perform();
+//    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     
     driver.manage().window().maximize();
 //    JavascriptExecutor jse = (JavascriptExecutor)driver;

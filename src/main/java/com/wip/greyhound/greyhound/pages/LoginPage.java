@@ -60,7 +60,7 @@ public class LoginPage extends BasePage {
 		click("#fare-search-btn");
 		System.out.println(driver.getCurrentUrl());
 		// needed to do this loop, as website has a bug - once the date is
-		// selected,
+		// selected, 
 		// 'from' and 'to' input fields are getting cleared
 		if (!driver.getCurrentUrl().endsWith("en/ecommerce/schedule")) {
 			enterText(" #fromLocation", "San Francisco,CA");
