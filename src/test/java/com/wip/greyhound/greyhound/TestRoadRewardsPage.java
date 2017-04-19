@@ -2,6 +2,7 @@ package com.wip.greyhound.greyhound;
 
 import java.util.Properties;
 
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -31,12 +32,9 @@ public class TestRoadRewardsPage {
     home.loadUrl();
     home.goToHelpAndInfo();
     HelpandInfo.GotoRoadRewards();
+    System.out.println(driver.getCurrentUrl() + "-------" + driver.getTitle());
+    Assert.assertTrue(driver.getTitle().contains("Road-Rewards"));
 
-    WebElement actualTitle = RRpage.Title(driver);
-    System.out.println("this is the page tile " + actualTitle);
-    String expectedTitle = "Road Rewards";
-    // Assert.assertTrue(actualTitle.contains("Rewards"));
-    // assertEquals(expectedTitle, actualTitle);
   }
 
   @Ignore
