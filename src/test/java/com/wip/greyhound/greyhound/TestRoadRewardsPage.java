@@ -4,7 +4,6 @@ import java.util.Properties;
 
 import org.junit.Assert;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -24,7 +23,7 @@ public class TestRoadRewardsPage {
     driver = WebDriverBuilder.getDriver();
   }
 
-  @Test
+  @Ignore
   public void verifyPageTitle() {
     HomePage home = new HomePage(driver);
     HelpandInfoPage HelpandInfo = new HelpandInfoPage(driver);

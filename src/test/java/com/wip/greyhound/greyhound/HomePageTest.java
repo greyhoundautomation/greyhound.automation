@@ -1,8 +1,11 @@
 package com.wip.greyhound.greyhound;
 
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
+import org.junit.AfterClass;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +25,13 @@ public class HomePageTest {
     driver = WebDriverBuilder.getDriver();
   }
 
+  @Before
+  public void setUp() throws Exception {
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.manage().window().maximize();
+    driver.manage().deleteAllCookies();
+  }
+
   @Test
   public void verifyLogin() {
     HomePage home = new HomePage(driver);
@@ -29,12 +39,13 @@ public class HomePageTest {
     home.gotoLogin();
   }
 
-  @Ignore
-  public void verifyMemberId() {
+  @Test
+  public void verifyMemberId() throws InterruptedException {
     HomePage home = new HomePage(driver);
     home.loadUrl();
     home.gotoLogin();
     LoginPage login = new LoginPage(driver);
+    Thread.sleep(1000);
     Assert.assertEquals("172893321", login.getMemberId());
   }
 
@@ -49,14 +60,14 @@ public class HomePageTest {
     // Assert.assertTrue(driver.getCurrentUrl().endsWith("help-and-info/road-rewards"));
   }
 
-  @Test
+  @Ignore
   public void verifyBookingAtrip() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
     home.gotoLogin();
     LoginPage login = new LoginPage(driver);
     TripSearchResultsPage searchResultPage = login.bookAtrip();
-    System.out.println(driver.getCurrentUrl());
+    // System.out.println(driver.getCurrentUrl());
     // Below might be a seleniumn bug, it doesn't give the corrct url, i am
     // getting the base url
     // Assert.assertTrue(driver.getCurrentUrl().endsWith("en/ecommerce/schedule"));
@@ -70,7 +81,7 @@ public class HomePageTest {
     new TripSearchResultsPage(driver);
   }
 
-  @Ignore
+  @Test
   public void verifyMexicoSite() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
@@ -84,7 +95,7 @@ public class HomePageTest {
 
   }
 
-  @Ignore
+  @Test
   public void rewardsPoint() {
     HomePage home = new HomePage(driver);
     HelpandInfoPage HelpandInfo = new HelpandInfoPage(driver);
@@ -93,7 +104,7 @@ public class HomePageTest {
     HelpandInfo.GotoRoadRewards();
   }
 
-  @Ignore
+  @Test
   public void gotoExplorePlaces() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
@@ -103,11 +114,17 @@ public class HomePageTest {
     Assert.assertTrue(driver.getCurrentUrl().endsWith("en/explore-places"));
   }
 
-  @Ignore
+  @Test
   public void verifyExplorePlaces() {
     gotoExplorePlaces();
     ExplorePage explore = new ExplorePage(driver);
     explore.getListOfPlaces();
   }
+
+  @AfterClass
+  public static void tearDown() throws Exception {
+    driver.quit();
+  }
+
 
 }

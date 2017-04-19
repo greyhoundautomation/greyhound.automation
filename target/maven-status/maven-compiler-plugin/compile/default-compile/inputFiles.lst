@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-/Users/vanishree/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/BasePage.java
-/Users/vanishree/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/RoadRewardsPage.java
-/Users/vanishree/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/WebDriverBuilder.java
-/Users/vanishree/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/HelpandInfoPage.java
-/Users/vanishree/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/HomePage.java
-/Users/vanishree/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/LoginPage.java
-=======
-/Users/aanvp/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/LoginPage.java
-/Users/aanvp/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/HomePage.java
-/Users/aanvp/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/MexicoSitePage.java
-/Users/aanvp/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/TripSearchResultsPage.java
-/Users/aanvp/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/WebDriverBuilder.java
-/Users/aanvp/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/BasePage.java
->>>>>>> refs/remotes/origin/master
+/Users/aanvazhapilly/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/MexicoSitePage.java
+/Users/aanvazhapilly/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/TripSearchResultsPage.java
+/Users/aanvazhapilly/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/WebDriverBuilder.java
+/Users/aanvazhapilly/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/HelpandInfoPage.java
+/Users/aanvazhapilly/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/ExplorePage.java
+/Users/aanvazhapilly/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/HomePage.java
+/Users/aanvazhapilly/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/SignupPage.java
+/Users/aanvazhapilly/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/LoginPage.java
+/Users/aanvazhapilly/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/RoadRewardsPage.java
+/Users/aanvazhapilly/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/BasePage.java
+/Users/aanvazhapilly/greyhound.automation/src/main/java/com/wip/greyhound/greyhound/pages/CanadaSite.java
