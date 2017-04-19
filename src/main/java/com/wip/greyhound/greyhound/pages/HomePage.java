@@ -27,15 +27,18 @@ public class HomePage extends BasePage {
 	public void gotoMexicoSite() {
 		clickxpath("//a[@href='http://www.greyhound.com.mx/']");
 	}
+	
+	public CanadaSite gotoCanadaSite() {
+		click("a[href='http://www.greyhound.ca']");
+		
+		return new CanadaSite(driver);
+	}
 
 	public HelpandInfoPage goToHelpAndInfo() {
 		driver.findElement(By.xpath("//a[@href='/en/help-and-info']")).click();
 		return new HelpandInfoPage(driver);
 	}
 
-	public void goToRegister() {
-		System.out.println("check..");
-		System.out.println("check 2");
-	}
+
 
 }
