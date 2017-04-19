@@ -15,7 +15,9 @@ public class LoginPage extends BasePage {
 	public LoginPage(WebDriver driver) {
 		super(driver);
 	}
-
+	
+	//1. sign in to the website
+	//2. In the landing page get the membership number
 	public String getMemberId() {
 		new WebDriverWait(driver, 30)
 				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("em[class='emblue']")));
@@ -23,17 +25,19 @@ public class LoginPage extends BasePage {
 		System.out.println(id);
 		return id;
 	}
-
+	//Signing out from the website
 	public void signout() {
 		Actions action = new Actions(driver);
 		WebElement hoverOn = driver.findElement(By.cssSelector("span[class='hi-member']"));
 		action.moveToElement(hoverOn);
 		action.perform();
 
-		WebElement hoverOnSignout = driver.findElement(By.xpath("//a[@class='btn btn-tertiary'] [text()='Log Out'])"));
+		WebElement hoverOnSignout = driver.findElement(By.cssSelector("a[class='btn btn-tertiary'][href='/account']"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(hoverOnSignout);
 		builder.click().build().perform();
+		
+		
 		// action.moveToElement(hoverOnSignout);
 		// action.perform();
 		// new WebDriverWait(driver, 30)

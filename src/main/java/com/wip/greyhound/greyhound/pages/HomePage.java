@@ -17,8 +17,11 @@ public class HomePage extends BasePage {
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
-
+	
+	//signing in to the app
 	public void gotoLogin() {
+		//clickxpath("//a[4]/span/span[1]");
+		//click("#nav-main ul li:nth-child(6) a");
 		enterText(usernameField, username);
 		enterText(passwordField, password);
 		click(submitButton);

@@ -16,17 +16,15 @@ import com.wip.greyhound.greyhound.pages.MexicoSitePage;
 import com.wip.greyhound.greyhound.pages.TripSearchResultsPage;
 import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 
-
-public class HomePageTest  {
-  public static WebDriver driver;
-  public Properties OR;
-
+public class HomePageTest {
+	public static WebDriver driver;
+	public Properties OR;
 
 	public HomePageTest() {
 		driver = WebDriverBuilder.getDriver();
 	}
 
-	@Ignore
+	@Test
 	public void verifyLogin() {
 		HomePage home = new HomePage(driver);
 		home.loadUrl();
@@ -40,8 +38,6 @@ public class HomePageTest  {
 		home.gotoLogin();
 		LoginPage login = new LoginPage(driver);
 		Assert.assertEquals("172893321", login.getMemberId());
-		home.closeBrowser();
-
 	}
 
 	@Ignore
@@ -52,25 +48,23 @@ public class HomePageTest  {
 		home.gotoLogin();
 		LoginPage login = new LoginPage(driver);
 		login.signout();
-		Assert.assertTrue(driver.getCurrentUrl().endsWith("help-and-info/road-rewards"));
+		//Assert.assertTrue(driver.getCurrentUrl().endsWith("help-and-info/road-rewards"));
 	}
 
-
-  @Ignore
-  public void verifyBookingAtrip() {
-    HomePage home = new HomePage(driver);
-    home.loadUrl();
-    home.gotoLogin();
-    LoginPage login = new LoginPage(driver);
-    TripSearchResultsPage searchResultPage = login.bookAtrip();
-    System.out.println(driver.getCurrentUrl());
-    // Below might be a seleniumn bug, it doesn't give the corrct url, i am getting the base url
-    // Assert.assertTrue(driver.getCurrentUrl().endsWith("en/ecommerce/schedule"));
-    // Assert.assertTrue(driver.getPageSource().contains("EDIT YOUR TRIP"));
-    //driver.findElement(By.cssSelector("#sbtrig-schedule")).isDisplayed();
-  }
-  
-
+	@Ignore
+	public void verifyBookingAtrip() {
+		HomePage home = new HomePage(driver);
+		home.loadUrl();
+		home.gotoLogin();
+		LoginPage login = new LoginPage(driver);
+		TripSearchResultsPage searchResultPage = login.bookAtrip();
+		System.out.println(driver.getCurrentUrl());
+		// Below might be a seleniumn bug, it doesn't give the corrct url, i am
+		// getting the base url
+		// Assert.assertTrue(driver.getCurrentUrl().endsWith("en/ecommerce/schedule"));
+		// Assert.assertTrue(driver.getPageSource().contains("EDIT YOUR TRIP"));
+		// driver.findElement(By.cssSelector("#sbtrig-schedule")).isDisplayed();
+	}
 
 	@Ignore
 	public void verifyEditTripDetails() {
@@ -102,21 +96,20 @@ public class HomePageTest  {
 	}
 
 	@Ignore
-	public void gotoExplorePlaces()  {
+	public void gotoExplorePlaces() {
 		HomePage home = new HomePage(driver);
 		home.loadUrl();
 		LoginPage login = new LoginPage(driver);
 		ExplorePage explore = login.gotoExplorePlaces();
 		System.out.println(driver.getCurrentUrl());
-		Assert.assertTrue(driver.getCurrentUrl().endsWith("en/explore-places"));		
+		Assert.assertTrue(driver.getCurrentUrl().endsWith("en/explore-places"));
 	}
-	
-	@Test
-	public void verifyExplorePlaces(){
+
+	@Ignore
+	public void verifyExplorePlaces() {
 		gotoExplorePlaces();
 		ExplorePage explore = new ExplorePage(driver);
 		explore.getListOfPlaces();
 	}
 
 }
-
