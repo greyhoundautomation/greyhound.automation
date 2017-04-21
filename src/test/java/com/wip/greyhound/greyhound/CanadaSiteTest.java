@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.wip.greyhound.greyhound.pages.CanadaSite;
@@ -40,13 +41,12 @@ public class CanadaSiteTest {
   }
 
   @Test
-  public void verifiyCanadaTripBooking() {
-    HomePage home = new HomePage(driver);
-    home.loadUrl();
-    home.gotoCanadaSite();
-	//driver.get("http://www.greyhound.ca");
+  public void verifiyCanadaTripBooking() throws InterruptedException {
+    driver.get("http://www.greyhound.ca");
     CanadaSite canadaBooking = new CanadaSite(driver);
     canadaBooking.canadaBookAtrip();
+    
+   
   }
 
 }
