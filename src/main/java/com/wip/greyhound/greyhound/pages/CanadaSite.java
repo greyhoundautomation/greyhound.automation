@@ -4,17 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CanadaSite extends BasePage {
-	
+
 	public CanadaSite(WebDriver driver) {
 		super(driver);
 	}
-	
-	public void canadaBookAtrip(){
-		driver.findElement(By.xpath("//*[@id='services']")).click();
-		//driver.findElement(By.cssSelector("a[id='services'][title='Services & Routes']")).click();
-		//driver.findElement(By.cssSelector("#sarBoxBot1")).click();
-		
+
+	public void canadaBookAtrip() {
+
+		if (driver.getCurrentUrl() == "http://http://www.greyhound.ca") {
+			driver.findElement(By.xpath("//div/ul/li[2]/a[@id='services' and @title='Services & Routes']")).click();
+		} else {
+			
+
+		}
+
 	}
-
-
 }
