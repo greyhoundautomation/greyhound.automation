@@ -126,5 +126,4 @@ public class HomePageTest {
     driver.quit();
   }
 
-
 }
