@@ -65,8 +65,6 @@ public class HomePageTest {
     home.gotoLogin();
     LoginPage login = new LoginPage(driver);
     login.bookAtrip();
-
-
   }
 
   @Test
@@ -81,10 +79,6 @@ public class HomePageTest {
     home.loadUrl();
     driver.getCurrentUrl();
     home.gotoMexicoSite();
-    // Assert.assertEquals("http://www.greyhound.com.mx/",
-    // driver.getCurrentUrl());
-    // Assert.assertEquals("LAS TARIFAS", driver.);
-    // driver.assertTrue(driver.is_element_present(By.cssSelector(".whitelabel-home-title.title-orange"));
     driver.getPageSource().contains("LAS TARIFAS");
 
   }

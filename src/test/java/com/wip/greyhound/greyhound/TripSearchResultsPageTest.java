@@ -20,21 +20,16 @@ public class TripSearchResultsPageTest {
   }
 
 
-  // public WebDriver driver;
-
   @Ignore
   public void verifyEditTripDetails() {
     HomePage home = new HomePage(driver);
     home.loadUrl();
-    // HomePageTest homeTest = new HomePageTest();
-    // homeTest.verifyBookingAtrip();
     TripSearchResultsPage editTrip = new TripSearchResultsPage(driver);
     System.out.println("test");
     editTrip.editTripDetails();
     System.out.println("test complete");
 
   }
-
 
   private void HomePageTest() {
     // TODO Auto-generated method stub

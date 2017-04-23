@@ -24,14 +24,14 @@ public class BasePage {
   public void click(String css) {
     driver.findElement(By.cssSelector(css)).click();
   }
-  
-  public void clickxpath(String xpath){
-	  driver.findElement(By.xpath(xpath)).click();
+
+  public void clickxpath(String xpath) {
+    driver.findElement(By.xpath(xpath)).click();
   }
 
   public void closeBrowser() {
     driver.quit();
   }
-  
+
 
 }
