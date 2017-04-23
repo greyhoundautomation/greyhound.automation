@@ -1,8 +1,9 @@
 *.class
 *.jar
 .project
-bin/**
 .settings
 .project
 .classpath
 target
+bin
+
