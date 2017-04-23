@@ -12,7 +12,6 @@ import com.wip.greyhound.greyhound.pages.HelpandInfoPage;
 import com.wip.greyhound.greyhound.pages.HomePage;
 import com.wip.greyhound.greyhound.pages.RoadRewardsPage;
 import com.wip.greyhound.greyhound.pages.SignupPage;
-import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 
 public class TestRoadRewardsPage {
   public WebDriver driver;
@@ -20,7 +19,7 @@ public class TestRoadRewardsPage {
 
 
   public TestRoadRewardsPage() {
-    driver = WebDriverBuilder.getDriver();
+    driver = com.wip.greyhound.webdriverBuilder.WebDriverBuilder.getDriver();
   }
 
   @Ignore

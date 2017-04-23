@@ -14,14 +14,13 @@ import com.wip.greyhound.greyhound.pages.HelpandInfoPage;
 import com.wip.greyhound.greyhound.pages.HomePage;
 import com.wip.greyhound.greyhound.pages.LoginPage;
 import com.wip.greyhound.greyhound.pages.TripSearchResultsPage;
-import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 
 public class HomePageTest {
   public static WebDriver driver;
   public Properties OR;
 
   public HomePageTest() {
-    driver = WebDriverBuilder.getDriver();
+    driver = com.wip.greyhound.webdriverBuilder.WebDriverBuilder.getDriver();
   }
 
   @Before
@@ -99,7 +98,6 @@ public class HomePageTest {
     LoginPage login = new LoginPage(driver);
     ExplorePage explore = login.gotoExplorePlaces();
     System.out.println(driver.getCurrentUrl());
-    // Assert.assertTrue(driver.getCurrentUrl().endsWith("en/explore-places"));
   }
 
   @Test

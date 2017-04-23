@@ -1,5 +1,6 @@
 package com.wip.greyhound.greyhound;
 
+
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -11,7 +12,8 @@ import org.openqa.selenium.WebDriver;
 
 import com.wip.greyhound.greyhound.pages.CanadaSitePage;
 import com.wip.greyhound.greyhound.pages.HomePage;
-import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
+import com.wip.greyhound.webdriverBuilder.WebDriverBuilder;
+
 
 public class CanadaSiteTest {
 

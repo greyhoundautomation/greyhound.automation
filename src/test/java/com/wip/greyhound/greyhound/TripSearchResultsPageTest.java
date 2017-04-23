@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 
 import com.wip.greyhound.greyhound.pages.HomePage;
 import com.wip.greyhound.greyhound.pages.TripSearchResultsPage;
-import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 
 public class TripSearchResultsPageTest {
 
@@ -16,7 +15,7 @@ public class TripSearchResultsPageTest {
 
 
   public TripSearchResultsPageTest() {
-    driver = WebDriverBuilder.getDriver();
+    driver = com.wip.greyhound.webdriverBuilder.WebDriverBuilder.getDriver();
   }
 
 
