@@ -1,9 +1,13 @@
 package com.wip.greyhound.greyhound;
 
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.wip.greyhound.greyhound.pages.CanadaSite;
@@ -19,6 +23,13 @@ public class CanadaSiteTest {
   public CanadaSiteTest() {
     driver = WebDriverBuilder.getDriver();
   }
+  
+@Before
+	public void setUp() throws Exception {
+		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+	}
 
   @Ignore
   public void verifyCandaSiteNaviation() {
@@ -29,13 +40,13 @@ public class CanadaSiteTest {
 
   }
 
-  @Ignore
-  public void verifiyCanadaTripBooking() {
-    HomePage home = new HomePage(driver);
-    home.loadUrl();
-    home.gotoCanadaSite();
+  @Test
+  public void verifiyCanadaTripBooking() throws InterruptedException {
+    driver.get("http://www.greyhound.ca");
     CanadaSite canadaBooking = new CanadaSite(driver);
     canadaBooking.canadaBookAtrip();
+    
+   
   }
 
 }
