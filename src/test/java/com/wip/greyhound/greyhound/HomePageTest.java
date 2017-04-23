@@ -79,7 +79,6 @@ public class HomePageTest {
     driver.getCurrentUrl();
     home.gotoMexicoSite();
     driver.getPageSource().contains("LAS TARIFAS");
-
   }
 
   @Test
@@ -90,6 +89,7 @@ public class HomePageTest {
     home.goToHelpAndInfo();
     HelpandInfo.GotoRoadRewards();
   }
+
 
   @Test
   public void gotoExplorePlaces() {
