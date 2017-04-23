@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CanadaSite extends BasePage {
+public class CanadaSitePage extends BasePage {
 
-  public CanadaSite(WebDriver driver) {
+  public CanadaSitePage(WebDriver driver) {
     super(driver);
   }
 

@@ -9,7 +9,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-import com.wip.greyhound.greyhound.pages.CanadaSite;
+import com.wip.greyhound.greyhound.pages.CanadaSitePage;
 import com.wip.greyhound.greyhound.pages.HomePage;
 import com.wip.greyhound.greyhound.pages.WebDriverBuilder;
 
@@ -42,7 +42,7 @@ public class CanadaSiteTest {
   @Test
   public void verifiyCanadaTripBooking() throws InterruptedException {
     driver.get("http://www.greyhound.ca");
-    CanadaSite canadaBooking = new CanadaSite(driver);
+    CanadaSitePage canadaBooking = new CanadaSitePage(driver);
     canadaBooking.canadaBookAtrip();
 
 

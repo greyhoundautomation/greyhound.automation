@@ -31,10 +31,10 @@ public class HomePage extends BasePage {
 		clickxpath("//a[@href='http://www.greyhound.com.mx/']");
 	}
 	
-	public CanadaSite gotoCanadaSite() {
+	public CanadaSitePage gotoCanadaSite() {
 		click("a[href='http://www.greyhound.ca']");
 		
-		return new CanadaSite(driver);
+		return new CanadaSitePage(driver);
 	}
 
 	public HelpandInfoPage goToHelpAndInfo() {
