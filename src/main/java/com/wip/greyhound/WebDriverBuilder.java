@@ -1,4 +1,4 @@
-package com.wip.greyhound.webdriverBuilder;
+package com.wip.greyhound;
 
 import java.io.FileInputStream;
 import java.io.IOException;
