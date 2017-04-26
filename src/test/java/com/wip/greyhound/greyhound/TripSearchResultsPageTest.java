@@ -5,6 +5,7 @@ import java.util.Properties;
 import org.junit.Ignore;
 import org.openqa.selenium.WebDriver;
 
+import com.wip.greyhound.WebDriverBuilder;
 import com.wip.greyhound.greyhound.pages.HomePage;
 import com.wip.greyhound.greyhound.pages.TripSearchResultsPage;
 
@@ -15,7 +16,7 @@ public class TripSearchResultsPageTest {
 
 
   public TripSearchResultsPageTest() {
-    driver = com.wip.greyhound.webdriverBuilder.WebDriverBuilder.getDriver();
+    driver = WebDriverBuilder.getDriver();
   }
 
 

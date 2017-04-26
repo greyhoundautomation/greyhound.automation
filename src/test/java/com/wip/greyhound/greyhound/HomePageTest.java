@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
+import com.wip.greyhound.WebDriverBuilder;
 import com.wip.greyhound.greyhound.pages.ExplorePage;
 import com.wip.greyhound.greyhound.pages.HelpandInfoPage;
 import com.wip.greyhound.greyhound.pages.HomePage;
@@ -20,7 +21,7 @@ public class HomePageTest {
   public Properties OR;
 
   public HomePageTest() {
-    driver = com.wip.greyhound.webdriverBuilder.WebDriverBuilder.getDriver();
+    driver = WebDriverBuilder.getDriver();
   }
 
   @Before

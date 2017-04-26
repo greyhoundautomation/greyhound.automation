@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import com.wip.greyhound.WebDriverBuilder;
 import com.wip.greyhound.greyhound.pages.HelpandInfoPage;
 import com.wip.greyhound.greyhound.pages.HomePage;
 import com.wip.greyhound.greyhound.pages.RoadRewardsPage;
@@ -19,7 +20,7 @@ public class TestRoadRewardsPage {
 
 
   public TestRoadRewardsPage() {
-    driver = com.wip.greyhound.webdriverBuilder.WebDriverBuilder.getDriver();
+    driver = WebDriverBuilder.getDriver();
   }
 
   @Ignore

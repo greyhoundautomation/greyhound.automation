@@ -2,17 +2,13 @@ package com.wip.greyhound.greyhound;
 
 
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import com.wip.greyhound.greyhound.pages.CanadaSitePage;
-import com.wip.greyhound.greyhound.pages.HomePage;
-import com.wip.greyhound.webdriverBuilder.WebDriverBuilder;
+import com.wip.greyhound.greyhound.pages.ExpressBookNowPage;
+import com.wip.greyhound.greyhound.pages.RoutesAndServicesPage;
 
 
 public class CanadaSiteTest {
@@ -22,31 +18,23 @@ public class CanadaSiteTest {
 
 
   public CanadaSiteTest() {
-    driver = WebDriverBuilder.getDriver();
+    driver = com.wip.greyhound.WebDriverBuilder.getDriver();
   }
 
   @Before
   public void setUp() throws Exception {
-    driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
     driver.manage().window().maximize();
     driver.manage().deleteAllCookies();
   }
 
-  @Ignore
-  public void verifyCandaSiteNaviation() {
-    HomePage home = new HomePage(driver);
-    home.loadUrl();
-    home.gotoCanadaSite();
-    Assert.assertTrue(driver.getPageSource().contains("www.greyhound.ca"));
-
-  }
-
   @Test
-  public void verifiyCanadaTripBooking() throws InterruptedException {
-    driver.get("http://www.greyhound.ca");
-    CanadaSitePage canadaBooking = new CanadaSitePage(driver);
-    canadaBooking.canadaBookAtrip();
-
+  public void verifyCandaSiteNaviation() {
+    driver.get("https://www.greyhound.ca/");
+    CanadaSitePage canadaSite = new CanadaSitePage(driver);
+    RoutesAndServicesPage servicesPage = canadaSite.clickingRoutesAndServices();
+    ExpressBookNowPage bookNowPage = servicesPage.clickOnBookNowForCanadaTrip();
+    bookNowPage.setTripType();
+    bookNowPage.setRegion("Alberta");
 
   }
 
