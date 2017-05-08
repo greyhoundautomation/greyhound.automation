@@ -25,8 +25,16 @@ public class BasePage {
     driver.findElement(By.cssSelector(css)).click();
   }
 
-  public void clickxpath(String xpath) {
+  public void clickByXpath(String xpath) {
     driver.findElement(By.xpath(xpath)).click();
+  }
+  
+  public void clickByID(String id){
+	  driver.findElement(By.id(id)).click();	  
+  }
+  
+  public void clickByLinkText(String linkText){
+	  driver.findElement(By.linkText(linkText)).click();
   }
 
   public void closeBrowser() {
