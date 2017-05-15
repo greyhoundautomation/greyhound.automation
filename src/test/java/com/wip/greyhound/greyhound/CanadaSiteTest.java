@@ -4,6 +4,8 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +18,7 @@ public class CanadaSiteTest {
 
 	public static WebDriver driver;
 	public Properties OR;
+	String outputTitle = "SELECT A DEPARTURE:";
 
 	public CanadaSiteTest() {
 		driver = com.wip.greyhound.WebDriverBuilder.getDriver();
@@ -25,25 +28,62 @@ public class CanadaSiteTest {
 	public void setUp() throws Exception {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("https://www.greyhound.ca/");
 	}
 
 	@Test
-	public void verifyCandaSiteNaviation() throws InterruptedException {
-		driver.get("https://www.greyhound.ca/");
+	public void verifyRoundtripSearchResults() throws InterruptedException {
 		CanadaSitePage canadaSite = new CanadaSitePage(driver);
 		RoutesAndServicesPage servicesPage = canadaSite.clickingRoutesAndServices();
 		ExpressBookNowPage bookNowPage = servicesPage.clickOnBookNowForCanadaTrip();
-		bookNowPage.setTripType();
+		bookNowPage.setTwoWayTrip();
 		bookNowPage.setRegion("Alberta");
-		bookNowPage.setFromLocation("Grassland");
-		bookNowPage.setToLocation("Red Deer");
+		bookNowPage.setFromLocation("Red Deer");
+		bookNowPage.setToLocation("Grassland");
 		bookNowPage.setDepartDate();
+		bookNowPage.setReturningDate();
+		bookNowPage.setPassenger();
+		bookNowPage.searchSchedule();
+		String veriTitle = bookNowPage.getOutputPage();
+		Assert.assertEquals(veriTitle, outputTitle);
 	}
+
+	@Test
+	public void verifyOnewaytripSearchResults() throws InterruptedException {
+		CanadaSitePage canadaSite = new CanadaSitePage(driver);
+		RoutesAndServicesPage servicesPage = canadaSite.clickingRoutesAndServices();
+		ExpressBookNowPage bookNowPage = servicesPage.clickOnBookNowForCanadaTrip();
+		bookNowPage.setRegion("Alberta");
+		bookNowPage.setFromLocation("Red Deer");
+		bookNowPage.setToLocation("Grassland");
+		bookNowPage.setDepartDate();
+		bookNowPage.searchSchedule();
+		String veriTitle = bookNowPage.getOutputPage();
+		Assert.assertEquals(veriTitle, outputTitle);
+	}
+	
+	@Test
+	public void verifyErrorMessageWhenAllTheFieldAreNotFilled() throws InterruptedException {
+		CanadaSitePage canadaSite = new CanadaSitePage(driver);
+		RoutesAndServicesPage servicesPage = canadaSite.clickingRoutesAndServices();
+		ExpressBookNowPage bookNowPage = servicesPage.clickOnBookNowForCanadaTrip();
+		bookNowPage.setRegion("Alberta");
+		bookNowPage.setFromLocation("Red Deer");
+		bookNowPage.setToLocation("Grassland");
+		bookNowPage.setDepartDate();
+		bookNowPage.searchSchedule();
+		//Assert.assertEquals(veriTitle, outputTitle);
+	}
+	
+	
 
 	@After
 	public void tearDown() throws InterruptedException {
-		Thread.sleep(7000);
+		Thread.sleep(8000);
+	}
+
+	@AfterClass
+	public static void closeBrowser() {
 		driver.quit();
 	}
 

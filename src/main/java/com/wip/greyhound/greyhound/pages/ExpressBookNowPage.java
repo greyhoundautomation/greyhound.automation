@@ -18,28 +18,26 @@ public class ExpressBookNowPage extends BasePage {
 	private String regionArrow = "ctl00_body_listRegion_Arrow";
 	private String regionXpath = "//div/ul/li[1][text()=";
 	private String fromLocationXpath = "//*[@id='ctl00_body_listOrigin_DropDown']/div/ul/li[text()=";
-	private String originDropdown = "//a[@id='ctl00_body_listOrigin_Arrow']";
+	private String originDropdown = "#ctl00_body_listOrigin_Arrow";// a[@id='ctl00_body_listOrigin_Arrow']";
 	private String destinationDropdown = "//a[@id='ctl00_body_listDestination_Arrow']";
 	private String toLocationXpath = "//*[@id='ctl00_body_listDestination_DropDown']/div/ul/li[text()=";
 	private String departingCalPopup = "//a[@id='ctl00_body_departureDate_popupButton']";
-	private String depCalNextButton ="//a[@id='ctl00_body_departureDate_calendar_NN']";
-	private String DepDate ="//table[@id='ctl00_body_departureDate_calendar_Top']//tr[3]/td[2]/a";
+	private String depCalNextButton = "//a[@id='ctl00_body_departureDate_calendar_NN']";
+	private String depDate = "//table[@id='ctl00_body_departureDate_calendar_Top']//tr[3]/td[2]/a";
+	private String retPopup = "#ctl00_body_returningDate_popupButton";
+	private String retCalNextButton = "#ctl00_body_returningDate_calendar_NN";
+	private String retDate = "//table[@id='ctl00_body_returningDate_calendar_Top']//tr[3]/td[2]/a";
+	private String passengerPopup = "#ctl00_body_passengers_Arrow";
+	private String passengerNum = "//div[@id='ctl00_body_passengers_DropDown']/div/ul/li[3]";
+	private String searchScheduleButton = "#expHpBookingSearchTixBtn";
+	private String assertOutput = "//div[@id='div_inner_content']/p[1]/b";
+	private String errorMessageXpath ="//div[@id='exp-hp-validation']";
 
 	public ExpressBookNowPage(WebDriver driver) {
 		super(driver);
 	}
 
-	public ExpressBookNowPage(String region, String fromLocationName, String toLocationName, String DepartDate,
-			String passenger) {
-		super(driver);
-		this.region = region;
-		this.fromLocationName = fromLocationName;
-		this.toLocationName = toLocationName;
-		this.DepartDate = DepartDate;
-		this.passenger = passenger;
-	}
-
-	public void setTripType() {
+	public void setTwoWayTrip() {
 		boolean roundTripBtnEnabled = driver.findElement(By.id("rbROUND_TRIP")).isEnabled();
 		if (roundTripBtnEnabled) {
 			driver.findElement(By.id("rbROUND_TRIP")).click();
@@ -52,35 +50,60 @@ public class ExpressBookNowPage extends BasePage {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(regionXpath + "\'" + region + "\'" + "]"))).click();
 	}
 
-	public void setFromLocation(String fromLocation) throws InterruptedException {
-		this.fromLocationName = fromLocation;
+	public void setFromLocation(String fromLocationName) throws InterruptedException {
 		Thread.sleep(3000);
-		e1 = driver.findElement(By.xpath(originDropdown));
+		e1 = driver.findElement(By.cssSelector(originDropdown));
 		e1.click();
-		// Thread.sleep(3000);
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath(fromLocationXpath + "\'" + fromLocationName + "\'" + "]"))).click();
 	}
 
-	public void setToLocation(String toLocation) throws InterruptedException {
-		this.toLocationName = toLocation;
-		Thread.sleep(3000);
+	public void setToLocation(String toLocationName) throws InterruptedException {
+		this.toLocationName = toLocationName;
+		Thread.sleep(1000);
 		clickByXpath(destinationDropdown);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		clickByXpath(toLocationXpath + "\'" + toLocationName + "\'" + "]");
 	}
 
-	//String departDate
 	public void setDepartDate() {
-		//this.DepartDate = departDate;
 		clickByXpath(departingCalPopup);
 		clickByXpath(depCalNextButton);
-		clickByXpath(DepDate);		
+		clickByXpath(depDate);
 	}
 
+	public void setReturningDate() throws InterruptedException {
+		Thread.sleep(1000);
+		click(retPopup);
+		click(retCalNextButton);
+		clickByXpath(retDate);
+	}
 
+	public void setPassenger() throws InterruptedException {
+		click(passengerPopup);
+		Thread.sleep(1000);
+		clickByXpath(passengerNum);
+	}
 
-	//
-	// driver.findElement(By.id("ctl00_body_listDestination_Arrow")).click();
+	public void searchSchedule() {
+		click(searchScheduleButton);
+
+	}
+
+	public String getOutputPage() {
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(assertOutput)));
+		WebElement outputTitle = driver.findElement(By.xpath(assertOutput));
+		String getTitle = outputTitle.getText();
+		return getTitle;
+
+	}
+	
+	public String getErrorMessageIfnotInputAllFeilds(){
+		WebElement errorMessage = driver.findElement(By.xpath(errorMessageXpath));
+		String errorText = errorMessage.getText();
+		return errorText;
+		
+	}
 
 }
