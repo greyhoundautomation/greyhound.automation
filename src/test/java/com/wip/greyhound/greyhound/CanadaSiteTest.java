@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -19,6 +20,7 @@ public class CanadaSiteTest {
 	public static WebDriver driver;
 	public Properties OR;
 	String outputTitle = "SELECT A DEPARTURE:";
+	String expErrorText = "Please fill the required fields.";
 
 	public CanadaSiteTest() {
 		driver = com.wip.greyhound.WebDriverBuilder.getDriver();
@@ -31,7 +33,7 @@ public class CanadaSiteTest {
 		driver.get("https://www.greyhound.ca/");
 	}
 
-	@Test
+	@Ignore
 	public void verifyRoundtripSearchResults() throws InterruptedException {
 		CanadaSitePage canadaSite = new CanadaSitePage(driver);
 		RoutesAndServicesPage servicesPage = canadaSite.clickingRoutesAndServices();
@@ -48,7 +50,7 @@ public class CanadaSiteTest {
 		Assert.assertEquals(veriTitle, outputTitle);
 	}
 
-	@Test
+	@Ignore
 	public void verifyOnewaytripSearchResults() throws InterruptedException {
 		CanadaSitePage canadaSite = new CanadaSitePage(driver);
 		RoutesAndServicesPage servicesPage = canadaSite.clickingRoutesAndServices();
@@ -61,7 +63,7 @@ public class CanadaSiteTest {
 		String veriTitle = bookNowPage.getOutputPage();
 		Assert.assertEquals(veriTitle, outputTitle);
 	}
-	
+
 	@Test
 	public void verifyErrorMessageWhenAllTheFieldAreNotFilled() throws InterruptedException {
 		CanadaSitePage canadaSite = new CanadaSitePage(driver);
@@ -69,13 +71,11 @@ public class CanadaSiteTest {
 		ExpressBookNowPage bookNowPage = servicesPage.clickOnBookNowForCanadaTrip();
 		bookNowPage.setRegion("Alberta");
 		bookNowPage.setFromLocation("Red Deer");
-		bookNowPage.setToLocation("Grassland");
 		bookNowPage.setDepartDate();
 		bookNowPage.searchSchedule();
-		//Assert.assertEquals(veriTitle, outputTitle);
+		String actualErrorText = bookNowPage.getErrorMessageIfnotInputAllFeilds();
+		Assert.assertEquals(expErrorText, actualErrorText);
 	}
-	
-	
 
 	@After
 	public void tearDown() throws InterruptedException {

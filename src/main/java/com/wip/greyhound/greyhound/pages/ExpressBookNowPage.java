@@ -28,10 +28,12 @@ public class ExpressBookNowPage extends BasePage {
 	private String retCalNextButton = "#ctl00_body_returningDate_calendar_NN";
 	private String retDate = "//table[@id='ctl00_body_returningDate_calendar_Top']//tr[3]/td[2]/a";
 	private String passengerPopup = "#ctl00_body_passengers_Arrow";
+
 	private String passengerNum = "//div[@id='ctl00_body_passengers_DropDown']/div/ul/li[3]";
-	private String searchScheduleButton = "#expHpBookingSearchTixBtn";
+	private String searchScheduleButton = "//a[@id='expHpBookingSearchTixBtn'][@title='Search Tickets']";
+	// "#expHpBookingSearchTixBtn";
 	private String assertOutput = "//div[@id='div_inner_content']/p[1]/b";
-	private String errorMessageXpath ="//div[@id='exp-hp-validation']";
+	private String errorMessageXpath = "//div[@id='exp-hp-validation']";
 
 	public ExpressBookNowPage(WebDriver driver) {
 		super(driver);
@@ -86,8 +88,9 @@ public class ExpressBookNowPage extends BasePage {
 		clickByXpath(passengerNum);
 	}
 
-	public void searchSchedule() {
-		click(searchScheduleButton);
+	public void searchSchedule() throws InterruptedException {
+		Thread.sleep(1000);
+		clickByXpath(searchScheduleButton);
 
 	}
 
@@ -98,12 +101,12 @@ public class ExpressBookNowPage extends BasePage {
 		return getTitle;
 
 	}
-	
-	public String getErrorMessageIfnotInputAllFeilds(){
+
+	public String getErrorMessageIfnotInputAllFeilds() {
 		WebElement errorMessage = driver.findElement(By.xpath(errorMessageXpath));
 		String errorText = errorMessage.getText();
 		return errorText;
-		
+
 	}
 
 }
